@@ -338,7 +338,8 @@ console.log(phone1)
 /*
   Use the spread operator to create a copy of the colors object below.
   Store the copy in a variable called colorsCopy.
-  Note: We did not cover the spread operator in class. We do not expect you to know how to use it. Challenge yourself by going online and researching what the spread operator is and how to use it.
+  Note: We did not cover the spread operator in class. We do not expect you to know how to use it.
+   Challenge yourself by going online and researching what the spread operator is and how to use it.
 */
 
 //do not edit this object
@@ -350,7 +351,10 @@ const colors = {
     //do not edit this object
 
 //Code Here 
-
+let colorsCopy = {
+    ...colors
+};
+console.log(colorsCopy)
 
 
 /*
@@ -378,10 +382,13 @@ const shippingInfo = {
     //do not edit the objects above
 
 //Code Here
-
+let helensInfo = {
+    ...contactInfo,
+    ...shippingInfo
+}
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
-
+console.log(helensInfo)
 
 //////////////////////////// PROBLEM 16 ////////////////////////////
 
@@ -396,14 +403,27 @@ const shippingInfo = {
 */
 
 //Code Here 
-
+class vehicle {
+    constructor(capacity, color, mileage) {
+        this.capacity = capacity;
+        this.color = color;
+        this.mileage = mileage;
+    }
+    move(miles) {
+        this.mileage = this.mileage + miles;
+        console.log(`the new mileage is ${this.mileage}`)
+    }
+}
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
 //Code Here
-
+var myFirstVehicle = new vehicle(5, "red", 200000)
+console.log(myFirstVehicle)
+myFirstVehicle.move(500)
+console.log(myFirstVehicle)
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -414,35 +434,60 @@ const shippingInfo = {
 */
 
 //Code Here
-
+class motercycle extends vehicle {
+    constructor(capacity, color, mileage, make, isCool) {
+        super(capacity, color, mileage)
+        this.make = make;
+        this.isCool = isCool
+    }
+}
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
+var myFirstMotorcycle = new motercycle(2, "red and white", 50000, "Honda", true)
+console.log(myFirstMotorcycle)
+    /*
+      Call the move function on myFirstMotorcycle (don't forget the parameter)
+    */
+myFirstMotorcycle.move(900)
+console.log(myFirstMotorcycle)
+    /*
+      Let's make another class based off of Vehicle. 
 
-/*
-  Call the move function on myFirstMotorcycle (don't forget the parameter)
-*/
+      Write a class called Boat that *extends* the Vehicle class. The constructor should take in
+      all the same arguments as Vehicle plus 3 new ones: 
+      name (boats gotta have cool names), type (ski boat, yacht, etc), and isSeaworthy.
 
-/*
-  Let's make another class based off of Vehicle. 
+      Create a method inside of the Boat class called checkSeaworthiness 
+      Inside the method, check to see if the boat is seaworthy
+      If it is, console.log a string: 'The {color} {type} {name} is seaworthy!'
+      If it isn't, console.log a string: 'You need to get your {type} in shape!'
 
-  Write a class called Boat that *extends* the Vehicle class. The constructor should take in
-  all the same arguments as Vehicle plus 3 new ones: 
-  name (boats gotta have cool names), type (ski boat, yacht, etc), and isSeaworthy.
-
-  Create a method inside of the Boat class called checkSeaworthiness 
-  Inside the method, check to see if the boat is seaworthy
-  If it is, console.log a string: 'The {color} {type} {name} is seaworthy!'
-  If it isn't, console.log a string: 'You need to get your {type} in shape!'
-
-  Write a second function in this class called performMaintenance 
-  This function should set isSeaworthy to be true
-*/
+      Write a second function in this class called performMaintenance 
+      This function should set isSeaworthy to be true
+    */
 
 //Code Here
-
+class boat extends vehicle {
+    constructor(capacity, color, mileage, name, type, isSeaworthy) {
+        super(capacity, color, mileage)
+        this.name = name;
+        this.type = type;
+        this.isSeaworthy = isSeaworthy
+    }
+    checkSeaworthiness() {
+        if (this.isSeaworthy === true) {
+            console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+        } else {
+            console.log(`You need to get your ${this.type} in shape`)
+        }
+    }
+    performMaintenance() {
+        this.isSeaworthy = true
+    }
+}
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -450,21 +495,24 @@ const shippingInfo = {
 */
 
 //Code Here
-
-/*
-  Call the checkSeaworthiness method on your new boat
-*/
+let myFirstBoat = new boat(8, "Maroon", 180000, "Aloha Spirit", "ski boat", false)
+    /*
+      Call the checkSeaworthiness method on your new boat
+    */
 
 //Code Here
+myFirstBoat.checkSeaworthiness()
 
 /*
   Now run the performMaintenance method on your boat
 */
 
 //Code Here 
+myFirstBoat.performMaintenance()
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+myFirstBoat.checkSeaworthiness()
