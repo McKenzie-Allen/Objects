@@ -75,7 +75,10 @@ console.log(favoriteThings)
 */
 
 //Code here
+favoriteThings.food = "chicken Nuggets"
+favoriteThings.book = "Harry Potter"
 
+console.log(favoriteThings)
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
@@ -92,9 +95,12 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
+
 //Code Here
 
+let { color, make, model, year } = carDetails
 
+console.log(`here is a ${color} ${year} ${make} ${model}`)
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
 
