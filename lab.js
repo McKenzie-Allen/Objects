@@ -101,8 +101,8 @@ var carDetails = {
 let { color, make, model, year } = carDetails
 
 console.log(`here is a ${color} ${year} ${make} ${model}`)
-
-//////////////////////////// PROBLEM 7 ////////////////////////////
+console.log(color)
+    //////////////////////////// PROBLEM 7 ////////////////////////////
 
 /*
   In the function below named greeting, it is receiving an object as a parameter. 
@@ -112,13 +112,19 @@ console.log(`here is a ${color} ${year} ${make} ${model}`)
 
 function greeting(obj) {
     //Code Here
-
+    let { title, firstName, lastName } = obj
     // Do not edit the code below.
     return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
     // Do not edit the code above.
 }
+let titleMy = {
+    title: "Lady",
+    firstName: "McKenzie",
+    lastName: "Allen"
+}
 
-
+let goodGreeting = greeting(titleMy)
+console.log(goodGreeting)
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
 
@@ -131,7 +137,20 @@ function greeting(obj) {
 */
 
 //Code Here
+function totalPopulation(obj) {
+    let { utah, california, texas, arizona } = obj
+    return (utah + california + texas + arizona)
 
+}
+let property = {
+    utah: 3206000,
+    california: 39510000,
+    texas: 29000000,
+    arizona: 7279000
+}
+
+let populationCount = totalPopulation(property)
+console.log(`The total population of Utah, California, Texas and Arizona is ${populationCount}`)
 
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
@@ -145,8 +164,23 @@ function greeting(obj) {
 */
 
 //Code Here
+function ingredients(obj) {
+    let { carb, fat, protein } = obj
+    let foodArr = []
+    foodArr.push(carb)
+    foodArr.push(fat)
+    foodArr.push(protein)
+    return (foodArr)
+}
 
+const food = {
+    carb: "CornBread",
+    fat: "butter",
+    protein: "chicken"
+}
 
+let chickenCornBread = ingredients(food)
+console.log(`this may surprise you but chicken Cornbread contains ${chickenCornBread}`)
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -167,6 +201,10 @@ var user = {
 */
 
 //Code Here
+user.name = "Bryan G. Smith"
+user.email = "bryan.smith@devmounta.in"
+
+console.log(user)
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -175,7 +213,8 @@ var user = {
 */
 
 //Code Here
-
+delete user.age
+console.log(user)
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -185,8 +224,16 @@ var user = {
 */
 
 //Code here
+class cat {
+    constructor(name, age, color) {
+        this.name = name;
+        this.age = age;
+        this.color = color;
+    }
+}
+let cat1 = new cat("cookie", 5, "black and white")
 
-
+console.log(cat1.name)
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -197,31 +244,58 @@ var user = {
 */
 
 //Code here
+class wizard {
+    constructor(name, age, favoriteSpell) {
+        this.name = name;
+        this.age = age;
+        this.favoriteSpell = favoriteSpell
+    }
+    castSpell() {
+        console.log(`${this.name} has cast ${this.favoriteSpell}`)
+    }
+}
+let wizard1 = new wizard("Agad", 605, "Self-ignition")
+wizard1.castSpell()
+    //////////////////////////// PROBLEM 14 ////////////////////////////
+    /*
+        Write a class called Phone. We'll use it as if we were creating
+        phone objects to keep track of inventory using an app.
 
-//////////////////////////// PROBLEM 14 ////////////////////////////
-/*
-    Write a class called Phone. We'll use it as if we were creating
-    phone objects to keep track of inventory using an app.
+        Phone will build phone objects with brand, model, storage, color, price, and sold properties.
 
-    Phone will build phone objects with brand, model, storage, color, price, and sold properties.
+        Write a constructor that sets those values -- all of the values 
+        should come from the constructors parameters except sold, which
+        should always be set to false. We want that to be false since 
+        when we create a new phone, we're putting it in our inventory
+        and it won't be sold yet. 
 
-    Write a constructor that sets those values -- all of the values 
-    should come from the constructors parameters except sold, which
-    should always be set to false. We want that to be false since 
-    when we create a new phone, we're putting it in our inventory
-    and it won't be sold yet. 
-
-    Create a method called 'sell'.
-    sell should be a function that changes the value of sold to true and prints the string: '{brand} {model} has been sold.'
-    
-    Create another method called 'changePrice'. We can use this 
-    to change the price in case a phone isn't selling.
-    changePrice should take in one argument, 'newPrice'. 
-    Inside the function, reassign the value of the object's price
-    to be newPrice.
-*/
+        Create a method called 'sell'.
+        sell should be a function that changes the value of sold to true and prints the string: '{brand} {model} has been sold.'
+        
+        Create another method called 'changePrice'. We can use this 
+        to change the price in case a phone isn't selling.
+        changePrice should take in one argument, 'newPrice'. 
+        Inside the function, reassign the value of the object's price
+        to be newPrice.
+    */
 
 //Code Here
+class phone {
+    constructor(brand, model, storage, color, price) {
+        this.brand = brand;
+        this.model = model;
+        this.storage = storage;
+        this.color = color;
+        this.price = price;
+        this.sold = false;
+    }
+    sell() {
+        this.sold = true;
+    }
+    changePrice(newPrice) {
+        this.price = newPrice
+    }
+}
 
 
 /*
@@ -235,6 +309,8 @@ var user = {
 */
 
 //Code Here
+let phone1 = new phone("moto", "one uw", 64, "blue", 679.99)
+console.log(phone1)
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -244,6 +320,8 @@ var user = {
 */
 
 //Code Here 
+phone1.changePrice(579.969)
+console.log(phone1)
 
 
 /*
@@ -253,9 +331,9 @@ var user = {
 */
 
 //Code Here 
-
-
-//////////////////////////// PROBLEM 15 ////////////////////////////
+phone1.sell()
+console.log(phone1)
+    //////////////////////////// PROBLEM 15 ////////////////////////////
 
 /*
   Use the spread operator to create a copy of the colors object below.
